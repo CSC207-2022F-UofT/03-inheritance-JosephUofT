@@ -14,7 +14,10 @@ public abstract class Bag {
      *       - an array of Strings named contents
      */
 
-
+    private String color;
+    private int numberOfContents;
+    private int capacity;
+    private String [] contents = new String [];
 
 
     /*
@@ -26,7 +29,13 @@ public abstract class Bag {
      * be empty (e.g. numberOfContents is 0 and an empty String array for
      * its contents.)
      */
-
+    
+    public bag(str col, int cap){
+        this.color = col;
+        this.capacity = cap;
+        this.numberOfContents = 0;
+        this.contents = [];
+    }
 
 
 
