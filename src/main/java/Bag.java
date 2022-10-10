@@ -17,7 +17,7 @@ public abstract class Bag {
     private String color;
     private int numberOfContents;
     private int capacity;
-    private String [] contents = new String [];
+    private ArrayList<String> contents = new ArrayList<String>;
 
 
     /*
@@ -34,7 +34,6 @@ public abstract class Bag {
         this.color = col;
         this.capacity = cap;
         this.numberOfContents = 0;
-        this.contents = [];
     }
 
 
@@ -46,7 +45,20 @@ public abstract class Bag {
      *           - getNumberOfContents
      *           - getCapacity
      */
+    
+    public string getColor(){
+        return this.color;
+    }
+    
+    public int getNumberOfContents(){
+        return this.numberOfContents;
+    }
+    
+    public int getCapacity(){
+        return this.capacity;
+    }
 
+    
 
 
 
@@ -55,6 +67,9 @@ public abstract class Bag {
      *       color of this bag to the given color.
      */
 
+    public void setColor(String col){
+        this.color = col;    
+    }
 
 
 
@@ -70,7 +85,16 @@ public abstract class Bag {
      *       and false otherwise.
      */
 
-
+    public static boolean addItem(String strr){
+        if (this.numberOfContents < this.capacity){
+            this.contents.append(strr);
+            this.numberOfContents += 1;
+            return true;
+         else{
+            return false;
+         }
+        }
+    }
 
 
 
@@ -85,7 +109,15 @@ public abstract class Bag {
      * @return
      */
 
-
+     public String popItem(){
+        if (this.numberOfContents <= 0){
+            return null;
+        }
+        else{
+            index = this.numberOfContents - 1;
+            this.contents.remove(index);   
+        }
+     }
 
 
 
@@ -96,7 +128,7 @@ public abstract class Bag {
      */
     public void increaseCapacity(int n) {
         // TODO: Implement this method.
-
+        this.capacity += n;
     }
 
     /**
@@ -110,6 +142,7 @@ public abstract class Bag {
     public String toString() {
         return this.color + " Bag (" + this.numberOfContents + " / " +
                 this.capacity + ")";
+        
     }
 
     /*
